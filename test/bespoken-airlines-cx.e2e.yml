@@ -1,0 +1,148 @@
+# This is the test file for your e2e tests, feel free to copy and modify the template 
+# test as many times as you want. In the parent folder, you'll also find a testing.json
+# file. It contains global configurations for this and other test files you might create 
+# in the future.
+#
+# Find more info on https://read.bespoken.io/end-to-end/getting-started/
+---
+configuration:
+  description: Bespoken Airlines DialogFlow Cx
+
+---
+- test : Book a flight, confirm the cities
+- $DIAL :
+  - prompt : 
+    - Welcome to the Bespoken Airlines Contact Center *
+    - this is the Bespoken Airlines Contact Center
+  - set finishOnPhrase : 
+    - please tell me what you're calling about
+    - I didn't get that can you repeat
+- New flight reservations: 
+  - prompt: New flight reservations
+  - set finishOnPhrase: 
+    - what city are you traveling from
+    - what city are you departing from
+- Lima: 
+  - set finishOnPhrase: what city are you traveling to
+  - set repeatOnPhrase: what city are you departing from
+- Miami: 
+  - prompt: is that correct
+  - set finishOnPhrase: is that correct
+- Yes:
+  - prompt: your flight * has been booked
+  - set finishOnPhrase: Have a nice day
+
+---
+- test : Book a flight, cancel the process
+- $DIAL :
+  - prompt : 
+    - Welcome to the Bespoken Airlines Contact Center *
+    - this is the Bespoken Airlines Contact Center
+  - set finishOnPhrase : 
+    - please tell me what you're calling about
+    - I didn't get that can you repeat
+- New flight reservations: 
+  - prompt: New flight reservations
+  - set finishOnPhrase: 
+    - what city are you traveling from
+    - what city are you departing from
+- Lima: 
+  - set finishOnPhrase: what city are you traveling to
+  - set repeatOnPhrase: what city are you departing from
+- Miami: 
+  - prompt: is that correct
+  - set finishOnPhrase: is that correct
+- No it's not correct:
+  - prompt: no problem
+  - set finishOnPhrase: would you like to modify the cities
+- No thanks:
+  - prompt: that's ok
+  - set finishOnPhrase: have a nice day
+
+---
+- test : Book a flight, change cities
+- $DIAL :
+  - prompt : 
+    - Welcome to the Bespoken Airlines Contact Center *
+    - this is the Bespoken Airlines Contact Center
+  - set finishOnPhrase : 
+    - please tell me what you're calling about
+    - I didn't get that can you repeat
+- New flight reservations: 
+  - prompt: New flight reservations
+  - set finishOnPhrase: 
+    - what city are you traveling from
+    - what city are you departing from
+- Lima: 
+  - set finishOnPhrase: what city are you traveling to
+  - set repeatOnPhrase: what city are you departing from
+- Miami: 
+  - prompt: is that correct
+  - set finishOnPhrase: is that correct
+- No:
+  - prompt: no problem
+  - set finishOnPhrase: would you like to modify the cities
+- Yes:
+  - prompt: New flight reservations
+  - set finishOnPhrase: 
+    - what city are you traveling from
+    - what city are you departing from
+- Bogota: 
+  - set finishOnPhrase: what city are you traveling to
+  - set repeatOnPhrase: what city are you departing from
+- New York: 
+  - prompt: is that correct
+  - set finishOnPhrase: is that correct
+- Yes:
+  - prompt: your flight * has been booked
+  - set finishOnPhrase: Have a nice day
+
+---
+- test.skip : Cancel a reservation (DTMF)
+- $DIAL :
+  - prompt : 
+    - Welcome to the Bespoken Airlines Contact Center *
+    - this is the Bespoken Airlines Contact Center
+  - set finishOnPhrase : please tell me what you're calling about
+- Cancellations: 
+  - prompt: Cancellations
+  - set finishOnPhrase: 
+    - say or press the four digit booking code
+    - what's your four digit booking code
+    - say or press the 4-Digit booking code
+- $6286: 
+  - set finishOnPhrase: 
+    - Thanks your booking with code 6286 has been canceled
+    - That's it your booking with code 6286 is no more
+    - Voilá your booking with code 6286 has been canceled
+  - set repeatOnPhrase:
+    - 4-Digit booking code
+    - four digit booking code
+  - prompt: canceled
+
+---
+- test : Cancel a reservation
+- $DIAL :
+  - prompt : 
+    - Welcome to the Bespoken Airlines Contact Center *
+    - this is the Bespoken Airlines Contact Center
+  - set finishOnPhrase : please tell me what you're calling about
+- Cancellations: 
+  - prompt: Cancellations
+  - set finishOnPhrase: 
+    - say or press the four digit booking code
+    - what's your four digit booking code
+- Six two eight six: 
+  - set finishOnPhrase: 
+    - Thanks your booking with code 6286 has been canceled
+    - That's it your booking with code 6286 is no more
+    - Voilá your booking with code 6286 has been canceled
+
+---
+- test : Help
+- $DIAL :
+  - prompt : Welcome to the Bespoken Airlines Contact Center *
+  - set finishOnPhrase : in a few words please tell me what you're calling about
+- I need help: 
+  - prompt: Hang in there and I'll connect you with an agent
+  - set repeatOnPhrase : in a few words please tell me what you're calling about

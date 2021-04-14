@@ -1,0 +1,33 @@
+{
+  "name": "bespoken-airlines-connect",
+  "version": "1.0.0",
+  "description": "Tests for a DialogFlow-CX-based IVR application",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "bst test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bespoken-samples/bespoken-airlines-connect.git"
+  },
+  "keywords": [
+    "connect",
+    "ivr",
+    "automation",
+    "testing",
+    "end-to-end"
+  ],
+  "author": "bespoken",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bespoken-samples/bespoken-airlines-connect/issues"
+  },
+  "homepage": "https://github.com/bespoken-samples/bespoken-airlines-connect#readme",
+  "dependencies": {
+    "bespoken-datadog-plugin": "^1.1.1",
+    "bespoken-tools": "^2.4.94"
+  }
+}

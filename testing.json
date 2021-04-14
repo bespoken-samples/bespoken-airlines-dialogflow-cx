@@ -1,0 +1,12 @@
+{
+    "locales": "en-US",
+    "phoneNumber": "${PHONE_NUMBER}",
+    "platform": "phone",
+    "trace": true,
+    "type": "e2e",
+    "virtualDeviceConfig": {
+        "recordCall": true,
+        "repeatOnPhrase": ["can you please repeat that", "can you say that again"]
+    },
+    "virtualDeviceToken": "${VIRTUAL_DEVICE_TOKEN}"
+}
