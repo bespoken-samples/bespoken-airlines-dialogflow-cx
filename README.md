@@ -1,4 +1,4 @@
-# Bespoken Airlines for Dialogflow
+# Bespoken Airlines for Dialogflow CX
 This project demonstrates a set of tests setup to run against our Dialogflow CX-based voice application.
 
 ## Setup

@@ -1,4 +1,5 @@
 {
+    "filter": "./node_modules/bespoken-datadog-plugin/index.js",
     "locales": "en-US",
     "phoneNumber": "${PHONE_NUMBER}",
     "platform": "phone",
