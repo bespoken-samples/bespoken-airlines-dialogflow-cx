@@ -9,7 +9,7 @@ configuration:
   description: Bespoken Airlines DialogFlow Cx
 
 ---
-- test : Book a flight, confirm the cities
+- test.only : Book a flight, confirm the cities
 - $DIAL :
   - prompt : 
     - Welcome to the Bespoken Airlines Contact Center *
@@ -50,7 +50,7 @@ configuration:
   - set finishOnPhrase: what city are you traveling to
   - set repeatOnPhrase: what city are you departing from
 - Miami: 
-  - prompt: is that correct
+  - prompt: you would want to book a flight from * to *
   - set finishOnPhrase: is that correct
 - No it's not correct:
   - prompt: no problem
@@ -77,7 +77,7 @@ configuration:
   - set finishOnPhrase: what city are you traveling to
   - set repeatOnPhrase: what city are you departing from
 - Miami: 
-  - prompt: is that correct
+  - prompt: you would want to book a flight from * to *
   - set finishOnPhrase: is that correct
 - No:
   - prompt: no problem
@@ -91,7 +91,7 @@ configuration:
   - set finishOnPhrase: what city are you traveling to
   - set repeatOnPhrase: what city are you departing from
 - New York: 
-  - prompt: is that correct
+  - prompt: you would want to book a flight from * to *
   - set finishOnPhrase: is that correct
 - Yes:
   - prompt: your flight * has been booked
@@ -141,7 +141,9 @@ configuration:
 ---
 - test : Help
 - $DIAL :
-  - prompt : Welcome to the Bespoken Airlines Contact Center *
+  - prompt : 
+    - Welcome to the Bespoken Airlines Contact Center *
+    - this is the Bespoken Airlines Contact Center
   - set finishOnPhrase : in a few words please tell me what you're calling about
 - I need help: 
   - prompt: Hang in there and I'll connect you with an agent
