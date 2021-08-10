@@ -3,7 +3,7 @@ name: End-to-end Tests
 on:
   schedule:
     # Runs our tests once per day at 8am
-    - cron:  '0 8 * * *'
+    - cron:  '0 8 * * */3'
   workflow_dispatch:
     inputs:
       e2eScript:
