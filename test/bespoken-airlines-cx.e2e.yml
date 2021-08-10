@@ -9,7 +9,7 @@ configuration:
   description: Bespoken Airlines DialogFlow Cx
 
 ---
-- test.only : Book a flight, confirm the cities
+- test : Book a flight, confirm the cities
 - $DIAL :
   - prompt : 
     - Welcome to the Bespoken Airlines Contact Center *
